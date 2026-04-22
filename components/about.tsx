@@ -22,7 +22,7 @@ export default function About() {
       <div className="w-full flex justify-center">
         <div className="w-[180px] h-[180px] mb-12">
           <Image
-            src="/images/front-pic.jpg"
+            src="/images/front-pic.jpeg"
             width={500}
             height={500}
             className="rounded-full"
