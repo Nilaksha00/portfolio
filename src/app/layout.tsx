@@ -1,17 +1,17 @@
 import type { Metadata, Viewport } from "next";
-import { JetBrains_Mono, Poppins } from "next/font/google";
+import { DM_Mono, Manrope } from "next/font/google";
 import { profile } from "@/data/portfolio";
 import "./globals.css";
 
-const poppins = Poppins({
+const manrope = Manrope({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
   variable: "--font-sans",
   display: "swap",
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const dmMono = DM_Mono({
   subsets: ["latin"],
+  weight: ["400", "500"],
   variable: "--font-mono",
   display: "swap",
 });
@@ -64,7 +64,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${poppins.variable} ${jetbrainsMono.variable}`}
+      className={`${manrope.variable} ${dmMono.variable}`}
     >
       <body className="font-sans antialiased">
         <a

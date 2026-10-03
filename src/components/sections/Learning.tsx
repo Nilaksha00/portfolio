@@ -26,7 +26,6 @@ export function Learning() {
                 hidden: { opacity: 0, y: 16, filter: "blur(6px)" },
                 visible: { opacity: 1, y: 0, filter: "blur(0px)" },
               }}
-              whileHover={{ y: -4, scale: 1.03 }}
               className="group flex items-center gap-2.5 rounded-xl border border-white/[0.07] bg-white/[0.02] px-4 py-3 transition-colors duration-300 hover:border-accent/40"
             >
               <Sparkles

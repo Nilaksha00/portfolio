@@ -52,13 +52,6 @@ export function TiltCard({
     <motion.div
       onMouseMove={onMove}
       onMouseLeave={onLeave}
-      style={
-        enabled
-          ? { rotateX: rx, rotateY: ry, transformPerspective: 1000 }
-          : undefined
-      }
-      whileHover={enabled ? { y: -2 } : undefined}
-      transition={{ type: "spring", stiffness: 200, damping: 20 }}
       className={cn(
         "surface group relative overflow-hidden rounded-2xl transition-colors duration-300 hover:border-white/20",
         className,

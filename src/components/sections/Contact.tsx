@@ -29,19 +29,19 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="section-py relative">
-      <div className="container-px mx-auto max-w-7xl">
-        <div className="border-t border-white/15 pt-16">
+    <section id="contact" className="mb-24 scroll-mt-16 md:mb-32 lg:scroll-mt-24">
+      <div>
+        <div>
           <Reveal>
-            <p className="mb-6 font-mono text-xs uppercase tracking-[0.25em] text-accent">
+            <p className="mb-4 font-mono text-xs uppercase tracking-[0.25em] text-accent">
               Contact
             </p>
-            <h2 className="font-display text-[clamp(2.75rem,9vw,7.5rem)] font-medium leading-[0.95] tracking-[-0.04em] text-white">
+            <h2 className="font-display text-4xl font-bold leading-[1.05] tracking-[-0.03em] text-white sm:text-5xl">
               {contact.heading}
             </h2>
           </Reveal>
 
-          <div className="mt-14 grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
+          <div className="mt-8 grid gap-10">
             <div>
               <Reveal>
                 <p className="max-w-md text-base leading-relaxed text-[#998f8f] sm:text-lg">

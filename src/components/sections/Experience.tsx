@@ -1,66 +1,57 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Briefcase } from "lucide-react";
 import { experience } from "@/data/portfolio";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export function Experience() {
   return (
-    <section id="experience" className="section-py relative">
-      <div className="container-px mx-auto max-w-7xl">
-        <SectionHeading eyebrow="Experience" title="Where I've worked" />
+    <section
+      id="experience"
+      className="mb-24 scroll-mt-16 md:mb-32 lg:scroll-mt-24"
+    >
+      <SectionHeading eyebrow="Experience" title="Where I've worked" />
 
-        <div className="relative mt-14 max-w-3xl">
-          {/* animated timeline line */}
-          <motion.span
-            aria-hidden
-            initial={{ scaleY: 0 }}
-            whileInView={{ scaleY: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 1.1, ease: "easeInOut" }}
-            className="absolute left-[15px] top-2 h-full w-px origin-top bg-gradient-to-b from-accent via-accent/40 to-transparent sm:left-[19px]"
-          />
-
-          <ol className="space-y-12">
-            {experience.map((job, i) => (
-              <li key={i} className="relative pl-12 sm:pl-16">
-                <Reveal delay={i * 0.1}>
-                  <span className="absolute left-0 top-1 grid h-8 w-8 place-items-center rounded-full border border-accent/30 bg-ink text-accent sm:h-10 sm:w-10">
-                    <Briefcase className="h-4 w-4" strokeWidth={1.75} />
-                  </span>
-
-                  <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5 transition-colors duration-300 hover:border-accent/25 sm:p-6">
-                    <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                      <h3 className="font-display text-lg font-semibold text-white sm:text-xl">
-                        {job.role}
-                      </h3>
-                      <span className="font-mono text-xs text-accent-soft">
-                        {job.period}
-                      </span>
-                    </div>
-                    <p className="mt-1 text-sm font-medium text-white/70">
-                      {job.company}
-                    </p>
-                    <ul className="mt-4 space-y-2">
-                      {job.points.map((point, j) => (
-                        <li
-                          key={j}
-                          className="flex gap-2.5 text-sm leading-relaxed text-white/55"
-                        >
-                          <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent/70" />
-                          {point}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </Reveal>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </div>
+      {/* hovering one entry dims the others (opacity only — nothing moves) */}
+      <ol className="group/list mt-10 space-y-10">
+        {experience.map((job, i) => (
+          <li
+            key={i}
+            className="group relative transition-opacity duration-300 lg:group-hover/list:opacity-50 lg:group-hover/list:hover:opacity-100"
+          >
+            <div
+              aria-hidden
+              className="absolute -inset-x-6 -inset-y-5 z-0 hidden rounded-xl border border-transparent transition-colors duration-300 motion-reduce:transition-none lg:block lg:group-hover:border-white/10 lg:group-hover:bg-white/[0.04]"
+            />
+            <Reveal delay={i * 0.08} className="relative z-10">
+              <div className="grid gap-2 sm:grid-cols-[9.5rem_1fr] sm:gap-6">
+                <p className="whitespace-nowrap pt-1 font-mono text-[11px] uppercase tracking-normal text-[#998f8f]">
+                  {job.period}
+                </p>
+                <div>
+                  <h3 className="font-display text-lg font-semibold leading-snug text-white">
+                    {job.role}
+                  </h3>
+                  <p className="mt-0.5 text-sm font-medium text-accent-soft">
+                    {job.company}
+                  </p>
+                  <ul className="mt-3 space-y-2">
+                    {job.points.map((point, j) => (
+                      <li
+                        key={j}
+                        className="flex gap-2.5 text-sm leading-relaxed text-[#998f8f]"
+                      >
+                        <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" />
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </Reveal>
+          </li>
+        ))}
+      </ol>
     </section>
   );
 }

@@ -28,11 +28,10 @@ export function SocialIcons({ className }: { className?: string }) {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9 + i * 0.08, duration: 0.4 }}
-              whileHover={{ y: -3 }}
               className="group flex h-11 w-11 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.02] text-white/60 transition-colors duration-300 hover:border-accent/40 hover:text-white"
             >
               <Icon
-                className="h-[18px] w-[18px] transition-transform duration-300 group-hover:scale-110"
+                className="h-[18px] w-[18px]"
                 strokeWidth={1.75}
               />
             </motion.a>

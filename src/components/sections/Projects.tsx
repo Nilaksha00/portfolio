@@ -7,67 +7,79 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export function Projects() {
   return (
-    <section id="projects" className="section-py relative">
-      <div className="container-px mx-auto max-w-7xl">
-        <SectionHeading
-          eyebrow="Recent projects"
-          title="Selected work"
-          description="Enterprise products and AI/ML projects from work and research."
-        />
+    <section
+      id="projects"
+      className="mb-24 scroll-mt-16 md:mb-32 lg:scroll-mt-24"
+    >
+      <SectionHeading
+        eyebrow="Projects"
+        title="Selected work"
+        description="Enterprise products and AI/ML projects from work and research."
+      />
 
-        <ul className="mt-16 border-t border-white/15">
-          {projects.map((project) => (
-            <li key={project.id} className="border-b border-white/10">
-              <Reveal>
-                <div className="group grid gap-4 py-8 transition-colors sm:grid-cols-[4rem_1.2fr_1fr_auto] sm:items-start sm:gap-8 sm:py-10">
-                  <span className="font-mono text-xs text-[#998f8f]">
-                    {project.id}
-                  </span>
-
-                  <div>
-                    <h3 className="font-display text-2xl font-medium tracking-tight text-white transition-transform duration-300 group-hover:translate-x-2 group-hover:text-accent sm:text-3xl">
-                      {project.title}
-                    </h3>
-                    <p className="mt-3 max-w-md text-sm leading-relaxed text-[#998f8f]">
-                      {project.description}
-                    </p>
-                  </div>
-
-                  <ul className="flex flex-wrap gap-x-4 gap-y-1 font-mono text-xs text-white/50 sm:pt-2">
+      <ul className="group/list mt-10 space-y-12">
+        {projects.map((project, i) => (
+          <li
+            key={project.id}
+            className="group relative transition-opacity duration-300 lg:group-hover/list:opacity-50 lg:group-hover/list:hover:opacity-100"
+          >
+            <div
+              aria-hidden
+              className="absolute -inset-x-6 -inset-y-5 z-0 hidden rounded-xl border border-transparent transition-colors duration-300 motion-reduce:transition-none lg:block lg:group-hover:border-white/10 lg:group-hover:bg-white/[0.04]"
+            />
+            <Reveal delay={i * 0.05} className="relative z-10">
+              <div className="grid gap-2 sm:grid-cols-[3rem_1fr] sm:gap-6">
+                <span className="pt-1 font-mono text-xs text-[#998f8f]">
+                  {project.id}
+                </span>
+                <div>
+                  <h3 className="font-display font-medium text-white">
+                    {project.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-[#998f8f]">
+                    {project.description}
+                  </p>
+                  <ul className="mt-4 flex flex-wrap gap-2">
                     {project.tech.map((t) => (
-                      <li key={t}>{t}</li>
+                      <li
+                        key={t}
+                        className="rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent-soft"
+                      >
+                        {t}
+                      </li>
                     ))}
                   </ul>
-
-                  <div className="flex items-center gap-5 text-sm sm:pt-1.5">
-                    {project.liveUrl && (
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-white/80 transition-colors hover:text-accent"
-                      >
-                        Live <ArrowUpRight className="h-3.5 w-3.5" />
-                      </a>
-                    )}
-                    {project.githubUrl && (
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`${project.title} on GitHub`}
-                        className="text-white/50 transition-colors hover:text-white"
-                      >
-                        <Github className="h-4 w-4" />
-                      </a>
-                    )}
-                  </div>
+                  {(project.liveUrl || project.githubUrl) && (
+                    <div className="mt-4 flex items-center gap-5 text-sm">
+                      {project.liveUrl && (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-white/80 transition-colors hover:text-accent"
+                        >
+                          Live <ArrowUpRight className="h-3.5 w-3.5" />
+                        </a>
+                      )}
+                      {project.githubUrl && (
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`${project.title} on GitHub`}
+                          className="text-white/50 transition-colors hover:text-white"
+                        >
+                          <Github className="h-4 w-4" />
+                        </a>
+                      )}
+                    </div>
+                  )}
                 </div>
-              </Reveal>
-            </li>
-          ))}
-        </ul>
-      </div>
+              </div>
+            </Reveal>
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }
