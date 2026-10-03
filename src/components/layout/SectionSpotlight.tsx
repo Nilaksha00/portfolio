@@ -9,7 +9,13 @@ import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
  * viewport). Purely presentational — links stay clickable, and the effect is
  * disabled for `prefers-reduced-motion`.
  */
-export function SectionSpotlight({ children }: { children: ReactNode }) {
+export function SectionSpotlight({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
   const reduced = usePrefersReducedMotion();
   const mainRef = useRef<HTMLElement>(null);
 
@@ -26,7 +32,7 @@ export function SectionSpotlight({ children }: { children: ReactNode }) {
     let active: HTMLElement | null = null;
 
     const apply = () => {
-      // First section (in document order) currently crossing the middle band.
+      // First section (in document order) currently crossing the focus band.
       const next = sections.find((s) => inBand.has(s)) ?? active;
       if (next === active) return;
       active = next;
@@ -44,7 +50,7 @@ export function SectionSpotlight({ children }: { children: ReactNode }) {
         apply();
       },
       // Root shrunk to a thin strip through the viewport centre.
-      { rootMargin: "-45% 0px -45% 0px", threshold: 0 },
+      { rootMargin: "-35% 0px -55% 0px", threshold: 0 },
     );
 
     sections.forEach((s) => observer.observe(s));
@@ -55,7 +61,7 @@ export function SectionSpotlight({ children }: { children: ReactNode }) {
   }, [reduced]);
 
   return (
-    <main ref={mainRef} data-spotlight>
+    <main ref={mainRef} data-spotlight className={className}>
       {children}
     </main>
   );

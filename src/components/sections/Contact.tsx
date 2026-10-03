@@ -36,7 +36,7 @@ export function Contact() {
             <p className="mb-4 font-mono text-xs uppercase tracking-[0.25em] text-accent">
               Contact
             </p>
-            <h2 className="font-display text-4xl font-bold leading-[1.05] tracking-[-0.03em] text-white sm:text-5xl">
+            <h2 className="font-display text-3xl font-medium leading-[1.1] tracking-[-0.02em] text-white/90 sm:text-4xl">
               {contact.heading}
             </h2>
           </Reveal>

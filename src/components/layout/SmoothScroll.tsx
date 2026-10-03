@@ -57,9 +57,41 @@ export function SmoothScroll() {
     };
     document.addEventListener("click", onClick);
 
+    // Auto-advance: when scrolling down comes to rest with only the tail of a
+    // section left on screen, glide on to the start of the next one.
+    let idleTimer = 0;
+    let lastY = window.scrollY;
+    const onScrollIdle = () => {
+      window.clearTimeout(idleTimer);
+      idleTimer = window.setTimeout(() => {
+        const y = window.scrollY;
+        const movedDown = y > lastY + 4;
+        lastY = y;
+        if (!movedDown || lenis.isScrolling) return;
+        if (document.body.style.overflow === "hidden") return; // dialog open
+
+        const sections = Array.from(
+          document.querySelectorAll<HTMLElement>("main > section"),
+        );
+        const vh = window.innerHeight;
+        for (let i = 0; i < sections.length - 1; i++) {
+          const rect = sections[i].getBoundingClientRect();
+          if (rect.bottom > 40 && rect.bottom < vh * 0.35) {
+            const next = sections[i + 1];
+            const margin = parseFloat(getComputedStyle(next).scrollMarginTop) || 0;
+            lenis.scrollTo(next, { offset: -margin, duration: 1.2 });
+            break;
+          }
+        }
+      }, 220);
+    };
+    window.addEventListener("scroll", onScrollIdle, { passive: true });
+
     return () => {
       cancelAnimationFrame(rafId);
       document.removeEventListener("click", onClick);
+      window.removeEventListener("scroll", onScrollIdle);
+      window.clearTimeout(idleTimer);
       lenis.destroy();
     };
   }, []);

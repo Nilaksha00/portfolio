@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { FileDown } from "lucide-react";
 import { useEffect, useState } from "react";
 import { navLinks, profile } from "@/data/portfolio";
@@ -41,24 +42,36 @@ export function Sidebar() {
   const active = useActiveSection();
 
   return (
-    <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-[46%] lg:flex-col lg:justify-between lg:py-24">
+    <header className="lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-[44%] lg:flex-col lg:justify-center lg:py-12">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease }}
       >
-        <h1 className="font-display text-6xl font-bold leading-[0.95] tracking-[-0.04em] text-white sm:text-7xl">
-          <a href="#about">{profile.name}</a>
+        <div className="relative mb-8 h-40 w-40 overflow-hidden rounded-full border border-white/10 bg-ink-card">
+          <Image
+            src="/portrait.png"
+            alt={`Portrait of ${profile.name}`}
+            fill
+            priority
+            sizes="160px"
+            className="object-cover"
+          />
+        </div>
+        <h1 className="whitespace-nowrap font-display text-[clamp(2rem,9vw,3rem)] font-extrabold leading-none tracking-[-0.04em] text-white lg:text-[clamp(2rem,3.4vw,3rem)]">
+          <a href="#about">
+            {profile.firstName}{" "}
+            <span className="text-accent">
+              {profile.name.replace(`${profile.firstName} `, "")}
+            </span>
+          </a>
         </h1>
         <p className="mt-3 font-mono text-sm text-accent">
           <span>{"> "}</span>
           <TypeCycle words={profile.roles} className="text-white/80" />
         </p>
-        <p className="mt-6 max-w-sm text-base leading-relaxed text-[#998f8f]">
-          {profile.heroDescription}
-        </p>
 
-        <nav aria-label="Sections" className="mt-14 hidden lg:block">
+        <nav aria-label="Sections" className="mt-10 hidden lg:block">
           <ul className="w-max">
             {navLinks.map((link) => {
               const isActive = active === link.href.slice(1);
@@ -66,7 +79,7 @@ export function Sidebar() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="group flex items-center py-3"
+                    className="group flex items-center py-2.5"
                   >
                     {/* fixed-width slot: the line scales, nothing else moves */}
                     <span
@@ -97,7 +110,7 @@ export function Sidebar() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.4 }}
-        className="mt-10 flex flex-col items-start gap-5 lg:mt-0"
+        className="mt-10 flex flex-col items-start gap-5 lg:mt-12"
       >
         <a
           href={profile.resumeUrl}

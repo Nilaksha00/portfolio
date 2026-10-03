@@ -33,6 +33,7 @@ export const profile = {
     "Software Engineer with 2+ years building enterprise software and scalable web applications, now pursuing an MSc in Artificial Intelligence.",
   // Rotating words under the name in the hero section.
   roles: [
+    "3+ Years Experience",
     "Full-Stack Developer",
     "AI / ML Engineer",
     "MSc AI Student",
@@ -145,6 +146,12 @@ export type Project = {
   title: string;
   description: string;
   tech: string[];
+  /** Cover image path under /public, e.g. "/projects/01.png". Optional. */
+  cover?: string;
+  /** Where the project was built (shown in the details modal). */
+  context: string;
+  /** Short bullet points shown in the details modal. */
+  highlights: string[];
   liveUrl?: string;
   githubUrl?: string;
 };
@@ -156,6 +163,13 @@ export const projects: Project[] = [
     description:
       "Contributed to a digital signage platform where users create custom designs, schedule content and push it to screens, simplifying content management. Built with TS Technologies.",
     tech: ["React", "Redux", "Bootstrap", "Konva", "Spring Boot", "MySQL", "MQTT"],
+    context: "TS Technologies (Pvt) Ltd",
+    highlights: [
+      "Users create custom designs for their screens",
+      "Schedule content to play when needed",
+      "Transfer content to screens, simplifying content management",
+      "Improves user engagement",
+    ],
   },
   {
     id: "02",
@@ -163,6 +177,12 @@ export const projects: Project[] = [
     description:
       "Developed and maintained a CRM that streamlines end-to-end service and sales operations, improving the sales journey from first engagement to post-service follow-up. Built with TS Technologies.",
     tech: ["React", "Zustand", "Bootstrap", "Spring Boot", "MySQL"],
+    context: "TS Technologies (Pvt) Ltd",
+    highlights: [
+      "Streamlines end-to-end service and sales operations",
+      "Covers the sales journey from initial engagement to post-service follow-up",
+      "Helps sales teams operate more efficiently and effectively",
+    ],
   },
   {
     id: "03",
@@ -170,6 +190,12 @@ export const projects: Project[] = [
     description:
       "Contributed to a fintech platform giving merchants and stakeholders real-time financial data, analytics and tools for informed decision-making. Built with DirectFN.",
     tech: ["Ember.js", "Bootstrap", "Sass", "JavaScript"],
+    context: "DirectFN (Pvt) Ltd",
+    highlights: [
+      "Real-time financial data for merchants and stakeholders",
+      "Analytics and tools for informed decision-making",
+      "Enhances efficiency and market insight",
+    ],
   },
   {
     id: "04",
@@ -177,6 +203,13 @@ export const projects: Project[] = [
     description:
       "A mobile app that uses deep learning to detect eye diseases, including diabetic retinopathy, from retinal images, helping specialists reach accurate diagnoses.",
     tech: ["Deep Learning", "Image Processing", "Python", "JavaScript", "Firebase"],
+    context: "Final Year Research Project · SLIIT",
+    highlights: [
+      "Detects eye diseases from retinal images, including diabetic retinopathy",
+      "Uses deep learning and image processing",
+      "Assists eye specialists in making accurate diagnoses",
+      "Reliable and efficient disease identification",
+    ],
   },
   {
     id: "05",
@@ -184,6 +217,12 @@ export const projects: Project[] = [
     description:
       "A machine learning model that predicts employee retention and attrition from historical data, covering preprocessing, feature selection and exploratory analysis.",
     tech: ["Python", "Machine Learning", "Pandas", "NumPy", "Scikit-learn", "Matplotlib"],
+    context: "Machine Learning Project",
+    highlights: [
+      "Predicts employee retention and attrition from employee-related features and historical data",
+      "Data preprocessing and feature selection",
+      "Exploratory data analysis to prepare datasets for model training",
+    ],
   },
 ];
 

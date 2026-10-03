@@ -3,6 +3,7 @@ import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { ScrollProgress } from "@/components/layout/ScrollProgress";
 import { BackToTop } from "@/components/layout/BackToTop";
 import { Sidebar } from "@/components/layout/Sidebar";
+import { SectionSpotlight } from "@/components/layout/SectionSpotlight";
 import { Footer } from "@/components/layout/Footer";
 import { About } from "@/components/sections/About";
 import { Experience } from "@/components/sections/Experience";
@@ -19,10 +20,10 @@ export default function HomePage() {
       <ScrollProgress />
 
       <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-16 lg:px-24 lg:py-0">
-        <div className="lg:flex lg:justify-between lg:gap-8">
+        <div className="lg:flex lg:justify-between lg:gap-20">
           <Sidebar />
 
-          <main className="pt-20 lg:w-[50%] lg:py-24">
+          <SectionSpotlight className="pt-20 lg:w-[52%] lg:py-24">
             <About />
             <Experience />
             <Projects />
@@ -30,7 +31,7 @@ export default function HomePage() {
             <Education />
             <Contact />
             <Footer />
-          </main>
+          </SectionSpotlight>
         </div>
       </div>
 
