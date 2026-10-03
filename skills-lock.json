@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "teaching-taste": {
+      "source": "dragoon0x/taste-skills",
+      "sourceType": "github",
+      "skillPath": "skills/team-practice/teaching-taste/SKILL.md",
+      "computedHash": "c7dd0add2f2931932646a69f8e2f53758346295f30906e53a675229087c70223"
+    }
+  }
+}
