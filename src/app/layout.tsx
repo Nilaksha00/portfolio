@@ -21,10 +21,13 @@ const siteUrl = "https://your-domain.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${profile.name} — ${profile.role}`,
-    template: `%s — ${profile.name}`,
+    default: `${profile.name} | ${profile.role}`,
+    template: `%s | ${profile.name}`,
   },
   description: profile.heroDescription,
+  icons: {
+    icon: "/favicon.ico",
+  },
   keywords: [
     "Software Engineer",
     "Full-Stack Developer",
@@ -39,13 +42,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: siteUrl,
-    title: `${profile.name} — ${profile.role}`,
+    title: `${profile.name} | ${profile.role}`,
     description: profile.heroDescription,
     siteName: `${profile.name} Portfolio`,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${profile.name} — ${profile.role}`,
+    title: `${profile.name} | ${profile.role}`,
     description: profile.heroDescription,
   },
   robots: { index: true, follow: true },
