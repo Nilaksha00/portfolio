@@ -50,7 +50,7 @@ export function Sidebar() {
       >
         <div className="relative mb-8 h-40 w-40 overflow-hidden rounded-full border border-white/10 bg-ink-card">
           <Image
-            src="/portrait.png"
+            src="/images/portrait.webp"
             alt={`Portrait of ${profile.name}`}
             fill
             priority

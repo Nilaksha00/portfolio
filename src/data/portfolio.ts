@@ -67,7 +67,7 @@ export const profile = {
   roles: [
     "3+ Years of Experience",
     "Full-Stack Engineer",
-    "Building with LLMs & RAG",
+    "AI Enthuasist",
     "MSc AI Student",
   ],
 };

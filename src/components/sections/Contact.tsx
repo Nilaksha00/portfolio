@@ -58,9 +58,9 @@ export function Contact() {
                   <MapPin className="h-4 w-4" />
                   {contact.location}
                 </p>
-                <div className="mt-8">
+                {/* <div className="mt-8">
                   <SocialIcons />
-                </div>
+                </div> */}
               </Reveal>
             </div>
 
@@ -126,10 +126,7 @@ export function Contact() {
                       ? "Sending…"
                       : "Message sent"}
                 </motion.button>
-                <p className="text-center text-xs text-white/30">
-                  This is a demo form. Connect it to an API route or a service
-                  like Formspree.
-                </p>
+                
               </form>
             </Reveal>
           </div>
