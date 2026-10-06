@@ -331,6 +331,8 @@ export const projects: Project[] = [
 export type ExperienceItem = {
   role: string;
   company: string;
+  /** Employment type shown after the company, e.g. "Part-time". Optional. */
+  type?: string;
   period: string;
   points: string[];
 };
@@ -348,7 +350,8 @@ export const experience: ExperienceItem[] = [
   },
   {
     role: "Co-Founder & Software Engineer",
-    company: "DevcoLabs Technologies",
+    company: "DevcoLabs",
+    type: "Part-time",
     period: "2024 - Present",
     points: [
       "Co-founded a technology startup focused on building software products",

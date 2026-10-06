@@ -34,6 +34,12 @@ export function Experience() {
                   </h3>
                   <p className="mt-0.5 text-sm font-medium text-accent-soft">
                     {job.company}
+                    {job.type && (
+                      <span className="font-normal text-[#998f8f]">
+                        {" · "}
+                        {job.type}
+                      </span>
+                    )}
                   </p>
                   <ul className="mt-3 space-y-2">
                     {job.points.map((point, j) => (
