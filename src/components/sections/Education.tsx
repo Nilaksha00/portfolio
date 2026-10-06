@@ -47,10 +47,13 @@ export function Education() {
         <ul className="mt-4 border-t border-white/15">
           {certifications.map((c) => (
             <li
-              key={c}
-              className="border-b border-white/10 py-3 text-sm text-white/75"
+              key={c.name}
+              className="flex flex-col gap-1 border-b border-white/10 py-3 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
             >
-              {c}
+              <span className="text-sm text-white/75">{c.name}</span>
+              <span className="shrink-0 font-mono text-[11px] uppercase tracking-normal text-[#998f8f]">
+                {c.issuer}
+              </span>
             </li>
           ))}
         </ul>

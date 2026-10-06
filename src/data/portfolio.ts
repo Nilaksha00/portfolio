@@ -8,21 +8,53 @@
  * ---------------------------------------------------------------------------
  */
 
+import type { ComponentType } from "react";
 import type { LucideIcon } from "lucide-react";
 import {
+  Bot,
   Boxes,
   BrainCircuit,
   Cloud,
   Code2,
+  Database,
+  FileSearch,
+  Layers,
+  MessageSquareCode,
+  ScanEye,
+  ScanSearch,
   Server,
   Sparkles,
+  Webhook,
 } from "lucide-react";
+import {
+  AwsIcon,
+  DockerIcon,
+  FirebaseIcon,
+  GitIcon,
+  JavaIcon,
+  JavaScriptIcon,
+  MySqlIcon,
+  NestJsIcon,
+  NextJsIcon,
+  NodeJsIcon,
+  OpenCvIcon,
+  PandasIcon,
+  PythonIcon,
+  QdrantIcon,
+  ReactIcon,
+  ReduxIcon,
+  ScikitLearnIcon,
+  SpringBootIcon,
+  TailwindCssIcon,
+  TensorFlowIcon,
+  TypeScriptIcon,
+} from "@/components/ui/BrandIcons";
 
 export const profile = {
   name: "Nilaksha Perera",
   firstName: "Nilaksha",
   role: "Software Engineer",
-  tagline: "Enterprise software, web apps and applied AI.",
+  tagline: "Full-stack products, enterprise systems and applied AI.",
   location: "Colombo, Sri Lanka",
   email: "nilaksha.sandani@gmail.com",
   phone: "+94 71 681 7217",
@@ -30,12 +62,12 @@ export const profile = {
   resumeUrl: "/resume.pdf",
   intro: "HELLO, I'M",
   heroDescription:
-    "Software Engineer with 2+ years building enterprise software and scalable web applications, now pursuing an MSc in Artificial Intelligence.",
+    "Software Engineer with 3+ years of experience building enterprise platforms and full-stack web apps, now pursuing an MSc in Artificial Intelligence and building with LLMs, RAG and AI agents.",
   // Rotating words under the name in the hero section.
   roles: [
-    "3+ Years Experience",
-    "Full-Stack Developer",
-    "AI / ML Engineer",
+    "3+ Years of Experience",
+    "Full-Stack Engineer",
+    "Building with LLMs & RAG",
     "MSc AI Student",
   ],
 };
@@ -76,66 +108,112 @@ export const navLinks = [
 
 export const about = {
   heading: "A little about me",
-  lead: "I'm a Software Engineer with 2+ years of experience building enterprise software and scalable web applications.",
+  lead: "I'm Nilaksha, a software engineer from Colombo, Sri Lanka, who enjoys turning complex problems into simple, useful products.",
   paragraphs: [
-    "I'm currently pursuing an MSc in Artificial Intelligence, with hands-on experience in Machine Learning, Deep Learning, Computer Vision and LLM-based applications through research and software projects.",
-    "I'm skilled in Python, React, TypeScript, REST APIs and cloud-based development, with a strong interest in AI/ML engineering, MLOps, and deploying intelligent systems to solve real-world problems.",
+    "I care about clean code and the small details that make software feel effortless. These days I'm reading for an MSc in Artificial Intelligence and exploring how LLMs and intelligent agents can make everyday tools smarter.",
   ],
   stats: [
-    { value: 2, suffix: "+", label: "Years Experience" },
+    { value: 3, suffix: "+", label: "Years Experience" },
     { value: 50, suffix: "+", label: "Enterprise Clients" },
-    { value: 5, suffix: "", label: "Featured Projects" },
+    { value: 6, suffix: "", label: "Featured Projects" },
     { value: 4, suffix: "", label: "Certifications" },
   ],
   marquee: [
     "SOFTWARE ENGINEERING",
-    "WEB DEVELOPMENT",
+    "FULL-STACK DEVELOPMENT",
+    "LLM APPLICATIONS",
     "MACHINE LEARNING",
     "COMPUTER VISION",
-    "MLOPS",
   ],
 };
 
 /* ------------------------------- SKILLS -------------------------------- */
 
+/** Brand logo (BrandIcons) or concept icon (lucide) shown beside a skill. */
+export type SkillIcon = ComponentType<{
+  className?: string;
+  "aria-hidden"?: boolean | "true" | "false";
+}>;
+
+export type Skill = {
+  name: string;
+  icon: SkillIcon;
+};
+
 export type SkillCategory = {
   title: string;
   icon: LucideIcon;
-  skills: string[];
+  skills: Skill[];
 };
 
 export const skills: SkillCategory[] = [
   {
     title: "Languages",
     icon: Code2,
-    skills: ["Python", "Java", "JavaScript", "TypeScript"],
+    skills: [
+      { name: "Python", icon: PythonIcon },
+      { name: "Java", icon: JavaIcon },
+      { name: "TypeScript", icon: TypeScriptIcon },
+      { name: "JavaScript", icon: JavaScriptIcon },
+      { name: "SQL", icon: Database },
+    ],
   },
   {
     title: "Frontend",
     icon: Code2,
-    skills: ["React", "Redux", "Zustand", "Ember.js", "Bootstrap", "Sass", "Konva"],
-  },
-  {
-    title: "Backend & Data",
-    icon: Server,
-    skills: ["Spring Boot", "Flask", "REST APIs", "MySQL", "Firebase", "MQTT"],
-  },
-  {
-    title: "ML & Deep Learning",
-    icon: BrainCircuit,
     skills: [
-      "TensorFlow",
-      "Keras",
-      "Deep Learning",
-      "CNNs",
-      "Image Processing",
-      "Model Training",
+      { name: "React", icon: ReactIcon },
+      { name: "Next.js", icon: NextJsIcon },
+      { name: "Redux", icon: ReduxIcon },
+      { name: "Zustand", icon: Layers },
+      { name: "Tailwind CSS", icon: TailwindCssIcon },
     ],
   },
   {
-    title: "AI Tools & Libraries",
-    icon: Boxes,
-    skills: ["OpenCV", "NumPy", "Pandas", "Matplotlib", "Scikit-learn"],
+    title: "Backend",
+    icon: Server,
+    skills: [
+      { name: "Spring Boot", icon: SpringBootIcon },
+      { name: "Node.js", icon: NodeJsIcon },
+      { name: "NestJS", icon: NestJsIcon },
+      { name: "REST APIs", icon: Webhook },
+      { name: "Microservices", icon: Boxes },
+    ],
+  },
+  {
+    title: "AI & LLMs",
+    icon: Sparkles,
+    skills: [
+      { name: "LLM Integrations", icon: Sparkles },
+      { name: "RAG", icon: FileSearch },
+      { name: "AI Agents", icon: Bot },
+      { name: "Prompt Engineering", icon: MessageSquareCode },
+      { name: "Vector Search", icon: ScanSearch },
+    ],
+  },
+  {
+    title: "Machine Learning",
+    icon: BrainCircuit,
+    skills: [
+      { name: "Deep Learning", icon: BrainCircuit },
+      { name: "Computer Vision", icon: ScanEye },
+      { name: "TensorFlow", icon: TensorFlowIcon },
+      { name: "OpenCV", icon: OpenCvIcon },
+      { name: "Scikit-learn", icon: ScikitLearnIcon },
+      { name: "Pandas", icon: PandasIcon },
+    ],
+  },
+  {
+    title: "Data, Cloud & Tools",
+    icon: Cloud,
+    skills: [
+      { name: "MySQL", icon: MySqlIcon },
+      { name: "Qdrant", icon: QdrantIcon },
+      { name: "Firebase", icon: FirebaseIcon },
+      { name: "AWS", icon: AwsIcon },
+      { name: "Docker", icon: DockerIcon },
+      { name: "Git", icon: GitIcon },
+    ],
   },
 ];
 
@@ -146,7 +224,7 @@ export type Project = {
   title: string;
   description: string;
   tech: string[];
-  /** Cover image path under /public, e.g. "/projects/01.png". Optional. */
+  /** Cover image path under /public, e.g. "/images/projects/crm.webp". Optional. */
   cover?: string;
   /** Where the project was built (shown in the details modal). */
   context: string;
@@ -156,72 +234,94 @@ export type Project = {
   githubUrl?: string;
 };
 
+// Ordered by real-world impact: production platforms first, then research and personal work.
 export const projects: Project[] = [
   {
     id: "01",
-    title: "Digital Signage Solution",
+    title: "CRM Platform",
     description:
-      "Contributed to a digital signage platform where users create custom designs, schedule content and push it to screens, simplifying content management. Built with TS Technologies.",
-    tech: ["React", "Redux", "Bootstrap", "Konva", "Spring Boot", "MySQL", "MQTT"],
+      "An end-to-end sales and service CRM that streamlines the customer journey, from first engagement through to post-service follow-up. Built at TS Technologies.",
+    cover: "/images/projects/crm.webp",
+    tech: ["React", "Zustand", "Bootstrap", "Spring Boot", "MySQL"],
     context: "TS Technologies (Pvt) Ltd",
     highlights: [
-      "Users create custom designs for their screens",
-      "Schedule content to play when needed",
-      "Transfer content to screens, simplifying content management",
-      "Improves user engagement",
+      "Brings sales and service operations together in one platform",
+      "Tracks every customer from first contact to post-service follow-up",
+      "Helps sales teams work faster and more effectively",
+      "Developed and maintained across the full stack, from UI to database",
     ],
   },
   {
     id: "02",
-    title: "CRM",
+    title: "Pro11 FinTech Platform",
     description:
-      "Developed and maintained a CRM that streamlines end-to-end service and sales operations, improving the sales journey from first engagement to post-service follow-up. Built with TS Technologies.",
-    tech: ["React", "Zustand", "Bootstrap", "Spring Boot", "MySQL"],
-    context: "TS Technologies (Pvt) Ltd",
+      "A real-time financial data platform giving merchants live market data, analytics and decision-making tools, used by 100+ corporate clients. Built at DirectFN.",
+    cover: "/images/projects/pro11.webp",
+    tech: ["Ember.js", "Bootstrap", "Sass", "JavaScript"],
+    context: "DirectFN (Pvt) Ltd",
     highlights: [
-      "Streamlines end-to-end service and sales operations",
-      "Covers the sales journey from initial engagement to post-service follow-up",
-      "Helps sales teams operate more efficiently and effectively",
+      "Real-time financial data and analytics for merchants",
+      "Data-driven UI features for faster, better-informed decisions",
+      "Trusted by 100+ corporate clients",
     ],
   },
   {
     id: "03",
-    title: "Pro11 FinTech Solution",
+    title: "Digital Signage Solution",
     description:
-      "Contributed to a fintech platform giving merchants and stakeholders real-time financial data, analytics and tools for informed decision-making. Built with DirectFN.",
-    tech: ["Ember.js", "Bootstrap", "Sass", "JavaScript"],
-    context: "DirectFN (Pvt) Ltd",
+      "A digital signage platform where users design custom layouts, schedule content and push it live to screens, making content management effortless. Built at TS Technologies.",
+    cover: "/images/projects/digital-signage.webp",
+    tech: ["React", "Redux", "Bootstrap", "Konva", "Spring Boot", "MySQL", "MQTT"],
+    context: "TS Technologies (Pvt) Ltd",
     highlights: [
-      "Real-time financial data for merchants and stakeholders",
-      "Analytics and tools for informed decision-making",
-      "Enhances efficiency and market insight",
+      "Visual editor for creating custom screen designs",
+      "Scheduling so content plays exactly when it should",
+      "Real-time delivery of content to screens over MQTT",
+      "Simpler content management and better audience engagement",
     ],
   },
   {
     id: "04",
-    title: "Eye Care — Final Year Research",
+    title: "Eye Care: AI Disease Detection",
     description:
       "A mobile app that uses deep learning to detect eye diseases, including diabetic retinopathy, from retinal images, helping specialists reach accurate diagnoses.",
-    tech: ["Deep Learning", "Image Processing", "Python", "JavaScript", "Firebase"],
+    cover: "/images/projects/eye-care.webp",
+    tech: ["Deep Learning", "CNNs", "Image Processing", "Python", "JavaScript", "Firebase"],
     context: "Final Year Research Project · SLIIT",
     highlights: [
-      "Detects eye diseases from retinal images, including diabetic retinopathy",
-      "Uses deep learning and image processing",
-      "Assists eye specialists in making accurate diagnoses",
+      "Detects eye diseases, including diabetic retinopathy, from retinal images",
+      "Deep learning and image processing at its core",
+      "Supports eye specialists in making accurate diagnoses",
       "Reliable and efficient disease identification",
     ],
   },
   {
     id: "05",
+    title: "RAG Document Q&A",
+    description:
+      "Upload a PDF and ask it anything. A full-stack retrieval-augmented generation app that answers natural-language questions and cites the exact passages it used.",
+    cover: "/images/projects/rag-document-qa.webp",
+    tech: ["React", "NestJS", "Qdrant", "Embedding Models", "LLM Integration"],
+    context: "Personal Project",
+    highlights: [
+      "Ask questions about any uploaded PDF in plain language",
+      "End-to-end pipeline: PDF parsing, chunking and embedding generation",
+      "Vector storage and semantic retrieval with Qdrant",
+      "LLM-generated answers backed by cited source passages",
+    ],
+  },
+  {
+    id: "06",
     title: "Employee Retention Prediction",
     description:
-      "A machine learning model that predicts employee retention and attrition from historical data, covering preprocessing, feature selection and exploratory analysis.",
+      "A classification model that predicts employee attrition from historical HR data, using feature engineering and exploratory analysis to surface what really drives retention.",
+    cover: "/images/projects/employee-retention.webp",
     tech: ["Python", "Machine Learning", "Pandas", "NumPy", "Scikit-learn", "Matplotlib"],
     context: "Machine Learning Project",
     highlights: [
-      "Predicts employee retention and attrition from employee-related features and historical data",
-      "Data preprocessing and feature selection",
-      "Exploratory data analysis to prepare datasets for model training",
+      "Predicts employee attrition from historical HR data",
+      "Feature engineering to sharpen model performance",
+      "Exploratory data analysis to identify the key retention drivers",
     ],
   },
 ];
@@ -239,30 +339,30 @@ export const experience: ExperienceItem[] = [
   {
     role: "Software Engineer",
     company: "TS Technologies (Pvt) Ltd",
-    period: "Mar 2026 — Present",
+    period: "Mar 2024 - Present",
     points: [
-      "Promoted from Associate Software Engineer",
-      "Continuing to build applications used by 50+ enterprise clients",
+      "Build and ship production modules for enterprise systems used by 50+ clients",
+      "Optimized rendering and state management in React and Redux, cutting load times and improving responsiveness across client-facing dashboards",
+      "Own features end to end, from requirements and MySQL schema design to Spring Boot integration and release",
     ],
   },
   {
-    role: "Associate Software Engineer",
-    company: "TS Technologies (Pvt) Ltd",
-    period: "Mar 2024 — Mar 2026",
+    role: "Co-Founder & Software Engineer",
+    company: "DevcoLabs Technologies",
+    period: "2024 - Present",
     points: [
-      "Contributed to applications used by 50+ enterprise clients, ensuring UX and optimal performance",
-      "Implemented production-grade modules that improved user workflows, reduced load times and enhanced responsiveness",
-      "Optimized performance and improved cross-platform responsiveness",
+      "Co-founded a technology startup focused on building software products",
+      "Design and develop full-stack applications from first requirements through to deployment",
+      "Shape system architecture and key technical decisions, planning features with the founding team to deliver scalable solutions",
     ],
   },
   {
     role: "Intern Software Engineer",
     company: "DirectFN (Pvt) Ltd",
-    period: "Mar — Nov 2022",
+    period: "Mar 2022 - Nov 2022",
     points: [
-      "Contributed to a FinTech platform used by 100+ corporate clients, enabling real-time financial insights",
-      "Resolved application bugs and implemented new features to maintain stability and performance",
-      "Worked closely with senior engineers to maintain code quality and deliver milestones on schedule",
+      "Built data-driven UI features for Pro11, a real-time financial data platform used by 100+ corporate clients",
+      "Resolved production bugs and shipped new features under senior engineer review, keeping a live client-facing platform stable",
     ],
   },
 ];
@@ -281,27 +381,26 @@ export const education: EducationItem[] = [
     degree: "MSc in Artificial Intelligence",
     institution: "Sri Lanka Institute of Information Technology (SLIIT)",
     period: "Reading",
-    detail: "Currently pursuing",
+    detail: "Alongside full-time engineering work",
   },
   {
-    degree: "BSc (Hons) in Information Technology — Software Engineering",
+    degree: "BSc (Hons) in Information Technology, specializing in Software Engineering",
     institution: "Sri Lanka Institute of Information Technology (SLIIT)",
-    period: "Feb 2020 — Mar 2024",
-    detail: "Second Class Lower Division (CGPA > 3.0) · Dean's List 2022",
-  },
-  {
-    degree: "GCE Advanced Level — Physical Science Stream",
-    institution: "Holy Cross College, Gampaha",
-    period: "Dec 2019",
-    detail: "",
+    period: "Feb 2020 - Mar 2024",
+    detail: "Second Class · Dean's List Award 2022",
   },
 ];
 
-export const certifications = [
-  "AWS Essentials — LinkedIn",
-  "JavaScript Foundations Professional Certificate — Mozilla",
-  "Career Essentials in Generative AI — Microsoft & LinkedIn",
-  "Microservices Foundations Professional Certificate — Kong",
+export type Certification = {
+  name: string;
+  issuer: string;
+};
+
+export const certifications: Certification[] = [
+  { name: "Career Essentials in Generative AI", issuer: "Microsoft & LinkedIn" },
+  { name: "AWS Essentials", issuer: "LinkedIn" },
+  { name: "Microservices Foundations Professional Certificate", issuer: "Kong" },
+  { name: "JavaScript Foundations Professional Certificate", issuer: "Mozilla" },
 ];
 
 /* -------------------------- CURRENTLY LEARNING ----------------------- */
@@ -311,10 +410,10 @@ export const learning = {
   note: "Always learning. Always building.",
   items: [
     "MSc in Artificial Intelligence",
-    "Computer Vision",
-    "Deep Learning",
-    "MLOps",
     "LLM Applications",
+    "RAG Pipelines",
+    "AI Agents",
+    "Computer Vision",
     "Cloud Development",
   ],
 };
@@ -335,8 +434,14 @@ export const services: Service[] = [
   },
   {
     title: "Full-Stack Development",
-    description: "React frontends backed by Spring Boot and REST APIs.",
+    description: "React frontends backed by Spring Boot, NestJS and REST APIs.",
     icon: Boxes,
+  },
+  {
+    title: "LLM & RAG Applications",
+    description:
+      "Document Q&A, retrieval pipelines and AI agents powered by large language models.",
+    icon: Sparkles,
   },
   {
     title: "Machine Learning",
@@ -345,14 +450,8 @@ export const services: Service[] = [
     icon: BrainCircuit,
   },
   {
-    title: "Computer Vision",
-    description:
-      "Deep learning and image processing for detection and diagnosis.",
-    icon: Sparkles,
-  },
-  {
     title: "Cloud & APIs",
-    description: "Secure REST APIs and cloud-based deployments.",
+    description: "Secure REST APIs, microservices and cloud-based deployments.",
     icon: Cloud,
   },
 ];
@@ -361,7 +460,7 @@ export const services: Service[] = [
 
 export const contact = {
   heading: "Let's build something great.",
-  text: "Have an idea, project, or opportunity? I'd love to hear about it.",
+  text: "I'm open to new opportunities and always happy to talk products, engineering or AI. Have something in mind? My inbox is always open.",
   email: "nilaksha.sandani@gmail.com",
   location: "Colombo, Sri Lanka",
 };

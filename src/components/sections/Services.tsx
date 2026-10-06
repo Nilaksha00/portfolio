@@ -14,7 +14,7 @@ export function Services() {
         <SectionHeading
           eyebrow="Services"
           title="What I can build"
-          description="From a single API to a full product — here's how I can help."
+          description="From a single API to a full product, here's how I can help."
         />
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

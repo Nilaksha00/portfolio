@@ -65,10 +65,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${manrope.variable} ${dmMono.variable}`}
-    >
+    <html lang="en" className={`${manrope.variable} ${dmMono.variable}`}>
       <body className="font-sans antialiased">
         <a
           href="#home"

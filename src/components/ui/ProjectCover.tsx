@@ -28,7 +28,7 @@ export function ProjectCover({
           alt={`${project.title} cover`}
           fill
           sizes={sizes}
-          className="object-cover object-top"
+          className="object-cover object-center"
         />
       ) : (
         <div

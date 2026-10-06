@@ -17,11 +17,7 @@ export function Projects() {
       id="projects"
       className="mb-24 scroll-mt-16 md:mb-32 lg:scroll-mt-24"
     >
-      <SectionHeading
-        eyebrow="Projects"
-        title="Selected work"
-        description="Enterprise products and AI/ML projects from work and research. Select one for details."
-      />
+      <SectionHeading eyebrow="Projects" title="Selected work" />
 
       <ul className="group/list mt-10 space-y-12">
         {projects.map((project, i) => (
